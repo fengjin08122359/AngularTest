@@ -1,0 +1,42 @@
+<div class="channelManage">
+  <el-button (click)="addChannel()"><span class="el-icon-plus"></span>添加渠道</el-button>
+  <div el-row [gutter]="20">
+      <div el-col class="channelBox" [span]="12" *ngFor="let item of channelDatas">
+        <div el-row>
+          <span>渠道名称</span>
+          <span>{{ item.name }}</span>
+          <span (click)="clickSetting(item)" class="el-icon-edit-outline"></span>
+        </div>
+        <div el-row>
+          <span>渠道类型</span>
+          <span>{{ item.type }}</span>
+        </div>
+        <div el-row>
+          <span>渠道说明</span>
+          <span >{{ item.memo }}</span>
+        </div>
+        <div el-row *ngIf="item.type=='web'">
+          <span>链接：</span>
+          <span>{{ linkUrl(item) }}</span>
+        </div>
+        <div el-row *ngIf="item.type=='wx'">
+          <span>微信公众号：</span>
+          <span>{{ item.publicNo }}</span>
+        </div>
+        <div el-row *ngIf="item.type=='app'">
+          <div>
+            <span>APP ID:</span>
+            <span>{{ item.appId }}</span>
+          </div>
+          <div>
+            <span>APP Secret:</span>
+            <span>{{ item.appSecret }}</span>
+          </div>
+        </div>
+        <div el-row>
+          <span *ngIf='item.type!=="wx"' (click)="clickAppearance(item)">外观配置</span>
+          <span (click)="clickConfig(item)">参数配置</span>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="ncmenu">
+  <div el-row >
+    <div el-col>
+      <el-menu model="2" class="el-menu-vertical-demo" default-active="0">
+        <el-menu-item *ngFor="let item of routerData" [index]="item.name" [to]="item.name">
+          <i [ngClass]="item.props.icon"></i>
+          <span slot="title"><a>{{ item.meta.title }}</a></span>
+        </el-menu-item>
+      </el-menu>
+    </div>
+  </div>
+</div>

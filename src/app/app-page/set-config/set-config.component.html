@@ -1,0 +1,77 @@
+<div class="setConfig">
+  <app-backcol [msg]="接入对话设置"></app-backcol>
+  <div el-row>
+    <h6>机器人设置</h6>
+    <span>机器人:</span>
+    <el-radio [(model)]="robot" label="1">开启</el-radio>
+    <el-radio [(model)]="robot" label="2">关闭</el-radio>
+  </div>
+  <div el-row>
+    <h6>接入业务类型设置</h6>
+    ncselectTree :treedata="department" msg="接入业务类型:" ref="ncselectTree"
+  </div>
+  <div el-row>
+    <h6>基本设置</h6>
+    <span>收集访客信息:</span>
+    <el-radio [(model)]="visitorInformation" label="1">开启</el-radio>
+    <el-radio [(model)]="visitorInformation" label="2">关闭</el-radio>
+  </div>
+  <div el-row>
+    <span>留言:</span>
+    <el-radio [(model)]="leaveMessage" label="1">开启</el-radio>
+    <el-radio [(model)]="leaveMessage" label="2">关闭</el-radio>
+  </div>
+  <div el-row>
+    <span>满意度调查:</span>
+    <el-radio [(model)]="satisfaction" label="1">开启</el-radio>
+    <el-radio [(model)]="satisfaction" label="2">关闭</el-radio>
+  </div>
+  <div el-row>
+    <span>坐席工作时间:</span>
+    <el-radio [(model)]="workTime" label="1">开启</el-radio>
+    <el-radio [(model)]="workTime" label="2">关闭</el-radio>
+  </div>
+  <div el-row>
+    <el-time-picker
+      [(model)]="startTime"
+      [picker-options]="{
+        selectableRange: '00:00:00 - 23:59:59'
+      }"
+      placeholder="开始时间">
+    </el-time-picker>
+    <el-time-picker
+      [(model)]="endTime"
+      [picker-options]="{
+        selectableRange: '00:00:00 - 23:59:59'
+      }"
+      placeholder="结束时间">
+    </el-time-picker>
+  </div>
+  <div el-row>
+    <span>插播广告:</span>
+    <el-radio [(model)]="adv" label="1">开启</el-radio>
+    <el-radio [(model)]="adv" label="2">关闭</el-radio>
+  </div>
+  <div el-row>
+    <span>满意度调查:</span>
+    <el-radio [(model)]="adv" label="1">对话结束,自动推送满意度调查</el-radio>
+    <el-radio [(model)]="adv" label="2">对话结束,不推送满意度调查</el-radio>
+  </div>
+  <div el-row>
+    <span>提示语设置:</span>
+    <div el-col :span="8">
+      <ul class="list-group" v-for="item in langlist" v-bind:key="item.index">
+        <li class="list-group-item" :class="{active: active==item.index}" v-text="item.name" @click="clickList(item.index)"></li>
+      </ul>
+    </div>
+    <div el-col [span]="16">
+      <vue-tinymce ref="test2" [(model)]="content" :setting="setting" v-bind:cur="state">
+      </vue-tinymce>
+    </div>
+  </div>
+  <div el-row>
+    <span>常见问题设置:</span>
+    <el-radio [(model)]="adv" label="1">对话结束,自动推送满意度调查</el-radio>
+    <el-radio [(model)]="adv" label="2">对话结束,不推送满意度调查</el-radio>
+  </div>
+</div>

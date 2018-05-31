@@ -1,0 +1,42 @@
+<div class="addWebChannel">
+  <app-backcol></app-backcol>
+  <div el-row>
+    <span>渠道名称:</span>
+    <el-input [(model)]="channel.name" ></el-input>
+  </div>
+  <div el-row>
+    <span>渠道类型:</span>
+    <el-select [(model)]="channel.type" placeholder="请选择"  (modelChange)="channelTypeChange(channel)">
+      <el-option
+        *ngFor="let item of channelOptions"
+        [label]="item.label"
+        [value]="item.value">
+      </el-option>
+    </el-select>
+  </div>
+  <div el-row>
+    <span>渠道说明:</span>
+    <el-input
+      type="textarea"
+      [rows]="3"
+      [resize]="none"
+      placeholder="渠道说明"
+      [(model)]="channel.memo">
+    </el-input>
+  </div>
+  <div el-row>
+    <span>链接地址:</span>
+    <el-radio [(model)]="channel.linkType" label="1">https</el-radio>
+    <el-radio [(model)]="channel.linkType" label="2">http</el-radio>
+  </div>
+  <div el-row>
+    <span>浏览轨迹:</span>
+    <el-radio [(model)]="channel.monitor" label="1">开启</el-radio>
+    <el-radio [(model)]="channel.monitor" label="2">关闭</el-radio>
+    <span>开启浏览轨迹后，会将访客浏览您网站的记录呈现在访客监控中</span>
+  </div>
+  <div el-row>
+    <el-button plain>保存</el-button>
+    <el-button plain>取消</el-button>
+  </div>
+</div>

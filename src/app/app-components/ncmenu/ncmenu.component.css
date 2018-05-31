@@ -1,0 +1,13 @@
+.ncmenu{
+  position:absolute;
+  top: 20px;
+  bottom: 0;
+  left: 0;
+  border-right: 1px solid #e6e6e6;
+}
+.ncmenu .el-menu{
+  border:0;
+}
+.ncmenu h5{
+  text-align: center;
+}
